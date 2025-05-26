@@ -45,30 +45,26 @@ export const SearchInputs = () => {
     setIsOpen(false);
   };
 
-  const getLink = () => {
-    let link = '/recipes?'
+  const getQuery = () => {
+    const queryParams: {
+      query? : string,
+      cuisine? : string,
+      time?: number,
+    } = {};
 
     if (query.length > 0) {
-      link += `query=${query}`;
+      queryParams.query = query;
     }
 
     if (CUISINES.find(cus => cus === cuisine)) {
-      if (link[-1] !== '?') {
-        link += `&cuisine=${cuisine}`
-      } else {
-        link += `cuisine=${cuisine}`
-      }
+      queryParams.cuisine = cuisine;
     }
 
     if (neededTime > 0) {
-      if (link[-1] !== '?') {
-        link += `&time=${neededTime}`
-      } else {
-        link += `time=${neededTime}`
-      }
+      queryParams.time = neededTime;
     }
 
-    return link;
+    return queryParams;
   }
 
   useEffect(() => {
@@ -145,7 +141,7 @@ export const SearchInputs = () => {
         />
       </div>
 
-      <Link href={getLink()} className={`${isDisable ? 'pointer-events-none opacity-50' : ''} block bg-blue-500 rounded-md w-fit py-2 px-10 text-white font-semibold`} >Next</Link>
+      <Link href={{pathname: '/recipes', query: getQuery()}} className={`${isDisable ? 'pointer-events-none opacity-50' : ''} block bg-blue-500 rounded-md w-fit py-2 px-10 text-white font-semibold`} >Next</Link>
     </div>
   );
 };
