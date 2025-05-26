@@ -46,12 +46,13 @@ export const SearchInputs = () => {
   };
 
   const getQuery = () => {
-    const queryParams: {
+   const queryParams: {
       query? : string,
       cuisine? : string,
       time?: number,
       page: number,
     } = {page: 1};
+
 
     if (query.length > 0) {
       queryParams.query = query;
