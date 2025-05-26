@@ -6,7 +6,8 @@ export async function getRecepies(searchParams: {
 }) {
   const { query, cuisine, time, page } = searchParams;
 
-  const createLinkFragment = () => {
+  try {
+    const createLinkFragment = () => {
     let fragment = "?";
 
     if (query) {
@@ -56,4 +57,7 @@ export async function getRecepies(searchParams: {
   } = await recepiesPromise.json();
 
   return result;
+  } catch (error) {
+    console.error("Error fetching recepies:", error);
+  }
 }
