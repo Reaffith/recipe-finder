@@ -11,7 +11,6 @@ Recipe Finder is a Next.js-based web application designed to help users search f
 - **TypeScript**: For type safety and robust code structure.
 - **Tailwind CSS**: For styling with a utility-first approach.
 - **React**: For component-based user interface.
-- **Node.js**: For managing dependencies and running the development server.  
 - **Git**: For version control.
 
 ## Getting Started
